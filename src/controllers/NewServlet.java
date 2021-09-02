@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Message;
+import models.Task;
 //import utils.DBUtil;
 
 @WebServlet("/new")
@@ -26,9 +26,9 @@ public class NewServlet extends HttpServlet {
         request.setAttribute("_token", request.getSession().getId());
 
         //おまじないとしてのインスタンスを作成
-        request.setAttribute("message", new Message());
+        request.setAttribute("task", new Task());
 
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/messages/new.jsp");
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/task/new.jsp");
         rd.forward(request, response);
     }
 
